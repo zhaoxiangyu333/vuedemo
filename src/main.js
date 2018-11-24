@@ -16,6 +16,7 @@ import 'mint-ui/lib/style.css'
 // 引入axios
 import Axios from 'axios'
 
+Vue.config.productionTip = false
 // 创建全局过滤器
 // Vue.filter('globeFilter', function (value) {
 //   return '我是全局过滤器' + value
@@ -28,7 +29,17 @@ Axios.defaults.baseURL = 'http://localhost:8080'
 // Vue原型挂载属性
 Vue.prototype.$axios = Axios
 
-Vue.config.productionTip = false
+// 拦截器
+Axios.interceptors.request.use(function (config) {
+  console.log(config)
+  MintUi.Indicator.open()
+  return config
+})
+Axios.interceptors.response.use(function (config) {
+  console.log(config)
+  MintUi.Indicator.close()
+  return config
+})
 
 // 全剧组建声明
 Vue.component('headerView', headerView)
