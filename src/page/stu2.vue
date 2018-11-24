@@ -7,6 +7,12 @@
     <body-view></body-view>
     <button @click="listen">父组件响应通信</button>
     <footer-view></footer-view>
+    <h1>
+      <router-link to="/stu1">上一部分教程</router-link>
+    </h1>
+    <h1>
+      <router-link to="/stu3">下一部分教程</router-link>
+    </h1>
   </div>
 </template>
 

@@ -9,6 +9,24 @@ import router from './router'
 import headerView from './components/header'
 import bodyView from './components/body'
 import footerView from './components/footer'
+// 引入mint-ui
+import MintUi from 'mint-ui'
+// 引入mint-ui的样式
+import 'mint-ui/lib/style.css'
+// 引入axios
+import Axios from 'axios'
+
+// 创建全局过滤器
+// Vue.filter('globeFilter', function (value) {
+//   return '我是全局过滤器' + value
+// })
+
+// 安装minu-ui插件
+Vue.use(MintUi)
+// 设置Axios默认端口api
+Axios.defaults.baseURL = 'http://localhost:8080'
+// Vue原型挂载属性
+Vue.prototype.$axios = Axios
 
 Vue.config.productionTip = false
 
